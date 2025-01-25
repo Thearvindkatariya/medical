@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Register</title>
+        <style>
+            /* General Body Styling */
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #e9f7fe; /* Light blue background */
+                margin: 0;
+                padding: 0;
+                color: #333;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                flex-direction: column;
+            }
+    
+            /* Center the form on the page */
+            .background {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+            }
+    
+            .shape {
+                width: 120px;
+                height: 120px;
+                background-color: #87cefa;
+                border-radius: 50%;
+                margin: 10px;
+                opacity: 0.7;
+            }
+    
+            /* Form Container */
+            form {
+                background-color: #ffffff; /* White background for the form */
+                border-radius: 10px;
+                padding: 40px;
+                width: 420px;
+                max-width: 100%;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                z-index: 1; /* Make sure the form is above the background shapes */
+            }
+    
+            /* Form Title */
+            form h3 {
+                text-align: center;
+                color: #007acc; /* Blue title */
+                font-size: 28px;
+                font-weight: 600;
+                margin-bottom: 30px;
+            }
+    
+            /* Input Field Styling */
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                width: 100%;
+                padding: 14px;
+                margin: 12px 0;
+                border: 2px solid #87cefa;
+                border-radius: 8px;
+                font-size: 16px;
+            }
+    
+            /* Focus effect on input fields */
+            input[type="text"]:focus,
+            input[type="email"]:focus,
+            input[type="password"]:focus {
+                border-color: #007acc; /* Blue border on focus */
+                outline: none;
+                box-shadow: 0 0 8px rgba(0, 122, 204, 0.5); /* Soft glow effect */
+            }
+    
+            /* Submit Button Styling */
+            button {
+                width: 100%;
+                padding: 14px;
+                background-color: #007acc; /* Blue button */
+                border: none;
+                border-radius: 8px;
+                color: white;
+                font-size: 18px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+    
+            /* Hover Effect for Button */
+            button:hover {
+                background-color: #005f8c; /* Darker blue when hovered */
+            }
+    
+            /* Link Styling */
+            a {
+                display: block;
+                text-align: center;
+                margin-top: 20px;
+                color: #007acc; /* Blue link */
+                text-decoration: none;
+            }
+    
+            /* Hover Effect for Link */
+            a:hover {
+                text-decoration: underline;
+                color: #005f8c; /* Darker blue on hover */
+            }
+    
+            /* Success/Failure messages */
+            .message {
+                text-align: center;
+                margin-top: 20px;
+                padding: 12px;
+                border-radius: 8px;
+                font-size: 16px;
+            }
+    
+            .success {
+                background-color: #28a745;
+                color: white;
+            }
+    
+            .error {
+                background-color: #dc3545;
+                color: white;
+            }
+    
+        </style>
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form action="" method="post">
+        {% csrf_token %} 
+        <h3>Signup Here</h3>
+
+        <label for="username">Username</label>
+        <input type="text" placeholder="Username" name="username" id="username">
+
+        <label for="email">Email</label>
+        <input type="email" placeholder="Email or Phone" name="email" id="email">
+
+        <label for="password1">Password</label>
+        <input type="password" placeholder="Password" id="password1" name="password1">
+
+
+        <label for="password2">Confrom Password</label>
+        <input type="password" placeholder="Confrom Password" id="password2" name="password2">
+        <button type="submit">Signup</button>
+        
+        <a href="{% url 'login' %}" >i have already account</a>
+    </form>
+</body>
+</html>

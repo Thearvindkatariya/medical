@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0056b3;
+            padding: 10px 20px;
+            color: #fff;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #cce7ff;
+        }
+
+        .profile {
+            position: relative;
+        }
+
+        .profile-logo {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #0056b3;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .profile-options {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: #fff;
+            color: #007acc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            z-index: 1000;
+            font-size: 15px;
+        }
+
+        .profile-options a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #007acc;
+            transition: background-color 0.3s ease;
+        }
+
+        .profile-options a:hover {
+            background-color: #e6f0ff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.h9smgB9BVfcaZwbHYMcgmgHaFb&pid=Api&P=0&h=180" alt="Website Logo">
+            <span>Healthcare AI</span>
+        </div>
+        <nav>
+            <a href="doctors.html">Doctors</a>
+            <a href="hospitals.html">Hospitals</a>
+            <a href="medical.html">Medicals</a>
+        </nav>
+        <div class="profile">
+            <div class="profile-logo"></div>
+            <div class="profile-options">
+                <a href="profile.html">Profile</a>
+
+                <a href="{% url 'logout' %}">Log Out</a>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        // JavaScript to toggle profile options on click
+        const profileLogo = document.querySelector('.profile-logo');
+        const profileOptions = document.querySelector('.profile-options');
+
+        profileLogo.addEventListener('click', () => {
+            profileOptions.style.display =
+                profileOptions.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Close dropdown if clicked outside
+        document.addEventListener('click', (event) => {
+            if (!profileLogo.contains(event.target) && !profileOptions.contains(event.target)) {
+                profileOptions.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
